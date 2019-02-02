@@ -31,8 +31,8 @@ for(var  i = len - 1; i >= 0; i--){
 // creating a food 
 
 var food = {
-	x: Math.round(Math.random()*(cvs.width/snakeW) + 1),
-	y: Math.round(Math.random()*(cvs.height/snakeH) + 1)
+	x: Math.round(Math.random()*(cvs.width/snakeW - 1) + 1),
+	y: Math.round(Math.random()*(cvs.height/snakeH - 1) + 1)
 }
 
                              //draw food 
@@ -92,7 +92,13 @@ function draw()
     //snake head 
     
     var snakeX = snake[0].x;
-    var snakeY = snake[0].y;
+    var snakeY = snake[0].y; 
+
+    // creating alert box
+
+    if(snakeX < 0 || snakeY < 0 || snakeX >= cvs.width/snakeW|| snakeY >= cvs.height/snakeH){
+       alert("Game Over");
+    }
 
     
    if (dir == "right"){snakeX++; }
